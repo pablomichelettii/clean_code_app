@@ -1,5 +1,5 @@
 import 'package:clean_code_app/core/commons/views/page_under_costruction.dart';
-import 'package:clean_code_app/src/on_boarding/presentation/on_boarding_screen.dart';
+import 'package:clean_code_app/src/on_boarding/presentation/views/on_boarding_screen.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
