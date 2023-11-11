@@ -11,8 +11,8 @@ final class OnBoardingInitial extends OnBoardingState {
   const OnBoardingInitial();
 }
 
-class CachingFirstTime extends OnBoardingState {
-  const CachingFirstTime();
+class CachingFirstTimer extends OnBoardingState {
+  const CachingFirstTimer();
 }
 
 class CheckingIfUserIsFirstTimer extends OnBoardingState {
@@ -23,8 +23,8 @@ class UserCached extends OnBoardingState {
   const UserCached();
 }
 
-class OnBoartingStatus extends OnBoardingState {
-  const OnBoartingStatus({required this.isFirstTimer});
+class OnBoardingStatus extends OnBoardingState {
+  const OnBoardingStatus({required this.isFirstTimer});
 
   final bool isFirstTimer;
 

@@ -98,7 +98,7 @@ void main() {
     );
 
     blocTest<OnBoardingCubit, OnBoardingState>(
-      'should emit [CheckingIfUserIsFirstTImer, OnBoardingState(true)] when '
+      'should emit [CheckingIfUserIsFirstTImer, OnBoardingStatus] when '
       'unsuccessful',
       build: () {
         when(() => checkIfUserIsFirstTimer()).thenAnswer(
@@ -109,16 +109,12 @@ void main() {
       act: (cubit) => cubit.checkIfUserIsFirstTimer(),
       expect: () => const [
         CheckingIfUserIsFirstTimer(),
-        OnBoardingSta tus(isFirstTimer: true),
-       ],
+        OnBoardingStatus(isFirstTimer: true),
+      ],
       verify: (_) {
         verify(() => checkIfUserIsFirstTimer()).called(1);
         verifyNoMoreInteractions(checkIfUserIsFirstTimer);
       },
     );
   });
-}
-
-class CachingFirstTimer {
-  const CachingFirstTimer();
 }
