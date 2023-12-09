@@ -1,5 +1,6 @@
 import 'package:clean_code_app/src/on_boarding/data/datasources/on_boarding_local_datasource.dart';
 import 'package:clean_code_app/src/on_boarding/data/repositories/on_boarding_repository_implementation.dart';
+import 'package:clean_code_app/src/on_boarding/domain/repositories/on_boarding_repository.dart';
 import 'package:clean_code_app/src/on_boarding/domain/usecases/cache_first_timer.dart';
 import 'package:clean_code_app/src/on_boarding/domain/usecases/chechk_if_user_is_first_timer.dart';
 import 'package:clean_code_app/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';
@@ -22,9 +23,7 @@ Future<void> init() async {
     )
     ..registerLazySingleton(() => CacheFirstTimer(serviceLocator()))
     ..registerLazySingleton(() => CheckIfUserIsFirstTimer(serviceLocator()))
-    ..registerLazySingleton<OnBoardingRepositoryImpl>(
-        () => OnBoardingRepositoryImpl(serviceLocator()))
-    ..registerLazySingleton<OnBoardingLocalDataSource>(
-        () => OnBoardingLocalDataSourceImpl(serviceLocator()))
+    ..registerLazySingleton<OnBoardingRepository>(() => OnBoardingRepositoryImpl(serviceLocator()))
+    ..registerLazySingleton<OnBoardingLocalDataSource>(() => OnBoardingLocalDataSourceImpl(serviceLocator()))
     ..registerLazySingleton(() => prefs);
 }

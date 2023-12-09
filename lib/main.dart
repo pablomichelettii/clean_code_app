@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Clean Code & TDD app',
       theme: ThemeData(
+        useMaterial3: true,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: Fonts.poppins,
         appBarTheme: const AppBarTheme(
           color: Colors.transparent,
         ),
         colorScheme: ColorScheme.fromSwatch(accentColor: Colours.primaryColour),
-        useMaterial3: true,
       ),
       onGenerateRoute: generateRoute,
     );

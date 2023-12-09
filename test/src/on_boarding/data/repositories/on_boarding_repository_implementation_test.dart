@@ -52,10 +52,73 @@ void main() {
           CacheFailure(message: 'Insufficent storage', statusCode: 500),
         ),
       );
-
-      expect(result, equals(const Right<dynamic, void>(null)));
       verify(() => localDataSource.cacheFirstTimer());
       verifyNoMoreInteractions(localDataSource);
     });
+  });
+
+  group('checkIfUserIsFirstTimer', () {
+    test(
+      'should return true when user is first timer',
+      () async {
+        when(() => localDataSource.checkIfUserIsFirstTimer())
+            .thenAnswer((_) async => Future.value(true));
+
+        final result = await repositoryImpl.checkIfUserIsFirstTimer();
+
+        expect(result, equals(const Right<dynamic, bool>(true)));
+
+        verify(() => localDataSource.checkIfUserIsFirstTimer()).called(1);
+
+        verifyNoMoreInteractions(localDataSource);
+      },
+    );
+
+    test(
+      'should return false when user is not first timer',
+      () async {
+        when(() => localDataSource.checkIfUserIsFirstTimer())
+            .thenAnswer((_) async => Future.value(false));
+
+        final result = await repositoryImpl.checkIfUserIsFirstTimer();
+
+        expect(result, equals(const Right<dynamic, bool>(false)));
+
+        verify(() => localDataSource.checkIfUserIsFirstTimer()).called(1);
+
+        verifyNoMoreInteractions(localDataSource);
+      },
+    );
+
+    test(
+      'should return a CacheFailure when call to local data source '
+      'is unsuccessful',
+      () async {
+        when(() => localDataSource.checkIfUserIsFirstTimer()).thenThrow(
+          const CacheException(
+            message: 'Insufficient permissions',
+            statusCode: 403,
+          ),
+        );
+
+        final result = await repositoryImpl.checkIfUserIsFirstTimer();
+
+        expect(
+          result,
+          equals(
+            Left<CacheFailure, bool>(
+              CacheFailure(
+                message: 'Insufficient permissions',
+                statusCode: 403,
+              ),
+            ),
+          ),
+        );
+
+        verify(() => localDataSource.checkIfUserIsFirstTimer()).called(1);
+
+        verifyNoMoreInteractions(localDataSource);
+      },
+    );
   });
 }
