@@ -24,7 +24,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 }
 
 PageRouteBuilder<dynamic> _pageBuilder(Widget Function(BuildContext) page,
-    {required RouteSettings settings}) {
+    {required RouteSettings settings,}) {
   return PageRouteBuilder(
     settings: settings,
     transitionsBuilder: (_, animation, __, child) => FadeTransition(

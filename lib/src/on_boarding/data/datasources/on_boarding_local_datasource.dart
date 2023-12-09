@@ -1,5 +1,4 @@
 import 'package:clean_code_app/core/commons/errors/exceptions.dart';
-import 'package:dartz/dartz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class OnBoardingLocalDataSource {

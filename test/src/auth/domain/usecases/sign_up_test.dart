@@ -1,7 +1,7 @@
+import 'package:clean_code_app/src/auth/domain/usecases/sign_up.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:test/test.dart'; 
-import 'package:clean_code_app/src/auth/domain/usecases/sign_up.dart';
+import 'package:test/test.dart';
 
 import 'auth_repository.mock.dart';
 

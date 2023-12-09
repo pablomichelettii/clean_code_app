@@ -1,10 +1,7 @@
-import 'package:clean_code_app/core/usecases/usecases.dart';
-import 'package:clean_code_app/core/utils/typedefs.dart';
-import 'package:clean_code_app/src/auth/domain/repositories/auth_repository.dart';
+import 'package:clean_code_app/src/auth/domain/usecases/forgot_password.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
-import 'package:clean_code_app/src/auth/domain/usecases/forgot_password.dart';
 
 import 'auth_repository.mock.dart';
 

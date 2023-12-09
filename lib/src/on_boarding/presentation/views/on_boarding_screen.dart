@@ -62,19 +62,19 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   onDotClicked: (index) {
                     pageController.animateToPage(index,
                         duration: const Duration(microseconds: 500),
-                        curve: Curves.easeOut);
+                        curve: Curves.easeOut,);
                   },
                   effect: const WormEffect(
                       dotHeight: 10,
                       dotWidth: 10,
                       spacing: 40,
                       activeDotColor: Colours.primaryColour,
-                      dotColor: Colors.white),
+                      dotColor: Colors.white,),
                 ),
-              )
+              ),
             ],
           );
-        }),
+        },),
       ),
     );
   }

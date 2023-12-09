@@ -4,8 +4,8 @@ import 'package:clean_code_app/src/on_boarding/data/datasources/on_boarding_loca
 import 'package:clean_code_app/src/on_boarding/data/repositories/on_boarding_repository_implementation.dart';
 import 'package:clean_code_app/src/on_boarding/domain/repositories/on_boarding_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 class MockOnBoardingLocalDataSouece extends Mock
     implements OnBoardingLocalDataSource {}
