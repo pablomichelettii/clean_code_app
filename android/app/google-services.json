@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1037680738824",
+    "project_id": "clean-code-app",
+    "storage_bucket": "clean-code-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037680738824:android:403b0694ef9bf770d147bd",
+        "android_client_info": {
+          "package_name": "com.example.clean_code_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJfJ0dTHQVRQFlWX4daXLEi6DP442UU6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
