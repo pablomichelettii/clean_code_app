@@ -151,17 +151,19 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
         case UpdateUserAction.password:
           if (_authClient.currentUser?.email == null) {
             throw const ServerException(
-                message: 'User does not exist',
-                statusCode: 'Insufficent Permission');
+              message: 'User does not exist',
+              statusCode: 'Insufficent Permission',
+            );
           }
           final newData = jsonDecode(userData as String) as DataMap;
           await _authClient.currentUser?.reauthenticateWithCredential(
             EmailAuthProvider.credential(
-                email: _authClient.currentUser!.email!,
-                password: newData['oldPassword'] as String),
+              email: _authClient.currentUser!.email!,
+              password: newData['oldPassword'] as String,
+            ),
           );
           await _authClient.currentUser
-              ?.updateEmail(newData['newPassword'] as String);
+              ?.updatePassword(newData['newPassword'] as String);
 
         case UpdateUserAction.bio:
           await _updateUserData({'bio': userData as String});
