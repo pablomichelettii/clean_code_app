@@ -34,47 +34,53 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       body: GradientBackground(
         image: MediaResources.onBoardingBackground,
         child: BlocConsumer<OnBoardingCubit, OnBoardingState>(
-            listener: (context, state) {
-          if (state is OnBoardingStatus && !state.isFirstTimer) {
-            Navigator.pushReplacementNamed(context, '/home');
-          } else if (state is UserCached) {
-            // TODO(user-cached-handler): make the screen
-          }
-        }, builder: (context, state) {
-          if (state is CheckingIfUserIsFirstTimer || state is CachingFirstTimer) {
-            return const LoadingView();
-          }
-          return Stack(
-            children: [
-              PageView(
-                controller: pageController,
-                children: const [
-                  OnBoardingBody(pageContent: PageContent.first()),
-                  OnBoardingBody(pageContent: PageContent.second()),
-                  OnBoardingBody(pageContent: PageContent.third()),
-                ],
-              ),
-              Align(
-                alignment: const Alignment(0, .04),
-                child: SmoothPageIndicator(
+          listener: (context, state) {
+            if (state is OnBoardingStatus && !state.isFirstTimer) {
+              Navigator.pushReplacementNamed(context, '/home');
+            } else if (state is UserCached) {
+              Navigator.pushReplacementNamed(context, '/');
+            }
+          },
+          builder: (context, state) {
+            if (state is CheckingIfUserIsFirstTimer ||
+                state is CachingFirstTimer) {
+              return const LoadingView();
+            }
+            return Stack(
+              children: [
+                PageView(
                   controller: pageController,
-                  count: 3,
-                  onDotClicked: (index) {
-                    pageController.animateToPage(index,
+                  children: const [
+                    OnBoardingBody(pageContent: PageContent.first()),
+                    OnBoardingBody(pageContent: PageContent.second()),
+                    OnBoardingBody(pageContent: PageContent.third()),
+                  ],
+                ),
+                Align(
+                  alignment: const Alignment(0, .04),
+                  child: SmoothPageIndicator(
+                    controller: pageController,
+                    count: 3,
+                    onDotClicked: (index) {
+                      pageController.animateToPage(
+                        index,
                         duration: const Duration(microseconds: 500),
-                        curve: Curves.easeOut,);
-                  },
-                  effect: const WormEffect(
+                        curve: Curves.easeOut,
+                      );
+                    },
+                    effect: const WormEffect(
                       dotHeight: 10,
                       dotWidth: 10,
                       spacing: 40,
                       activeDotColor: Colours.primaryColour,
-                      dotColor: Colors.white,),
+                      dotColor: Colors.white,
+                    ),
+                  ),
                 ),
-              ),
-            ],
-          );
-        },),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:clean_code_app/core/commons/app/providers/user_provider.dart';
 import 'package:clean_code_app/core/resources/colors.dart';
 import 'package:clean_code_app/core/resources/fonts.dart';
 import 'package:clean_code_app/core/services/injection_container.dart';
@@ -5,6 +6,7 @@ import 'package:clean_code_app/core/services/router.dart';
 import 'package:clean_code_app/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,18 +23,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Clean Code & TDD app',
-      theme: ThemeData(
-        useMaterial3: true,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: Fonts.poppins,
-        appBarTheme: const AppBarTheme(
-          color: Colors.transparent,
+    return ChangeNotifierProvider(
+      create: (_) => UserProvider(),
+      child: MaterialApp(
+        title: 'Clean Code & TDD app',
+        theme: ThemeData(
+          useMaterial3: true,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: Fonts.poppins,
+          appBarTheme: const AppBarTheme(
+            color: Colors.transparent,
+          ),
+          colorScheme:
+              ColorScheme.fromSwatch(accentColor: Colours.primaryColour),
         ),
-        colorScheme: ColorScheme.fromSwatch(accentColor: Colours.primaryColour),
+        onGenerateRoute: generateRoute,
       ),
-      onGenerateRoute: generateRoute,
     );
   }
 }
