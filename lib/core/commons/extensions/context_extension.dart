@@ -1,3 +1,4 @@
+import 'package:clean_code_app/core/commons/app/providers/tab_navigator.dart';
 import 'package:clean_code_app/core/commons/app/providers/user_provider.dart';
 import 'package:clean_code_app/src/auth/domain/entities/user.dart';
 import 'package:flutter/material.dart';
@@ -15,4 +16,10 @@ extension ContextExt on BuildContext {
   UserProvider get userProvider => read<UserProvider>();
 
   LocalUser? get currentUser => userProvider.user;
+
+  TabNavigator get tabNavigator => read<TabNavigator>();
+
+  void pop() => tabNavigator.pop();
+
+  void push(Widget page) => tabNavigator.push(TabItem(child: page));
 }

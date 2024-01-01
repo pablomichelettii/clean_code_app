@@ -9,6 +9,7 @@ Future<void> init() async {
 
 Future<void> _initOnBoarding() async {
   final prefs = await SharedPreferences.getInstance();
+  // await prefs.clear();
   serviceLocator
     ..registerFactory(
       () => OnBoardingCubit(
@@ -19,9 +20,9 @@ Future<void> _initOnBoarding() async {
     ..registerLazySingleton(() => CacheFirstTimer(serviceLocator()))
     ..registerLazySingleton(() => CheckIfUserIsFirstTimer(serviceLocator()))
     ..registerLazySingleton<OnBoardingRepository>(
-        () => OnBoardingRepositoryImpl(serviceLocator()))
+        () => OnBoardingRepositoryImpl(serviceLocator()),)
     ..registerLazySingleton<OnBoardingLocalDataSource>(
-        () => OnBoardingLocalDataSourceImpl(serviceLocator()))
+        () => OnBoardingLocalDataSourceImpl(serviceLocator()),)
     ..registerLazySingleton(() => prefs);
 }
 

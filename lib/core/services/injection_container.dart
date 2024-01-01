@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:clean_code_app/src/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:clean_code_app/src/auth/data/repositories/auth_repository_impl.dart';

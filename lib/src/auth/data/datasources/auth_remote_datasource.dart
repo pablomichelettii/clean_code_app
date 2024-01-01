@@ -37,7 +37,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   const AuthRemoteDataSourceImpl(
       {required FirebaseAuth authClient,
       required FirebaseFirestore cloudStoreClient,
-      required FirebaseStorage dbClient})
+      required FirebaseStorage dbClient,})
       : _authClient = authClient,
         _cloudStoreClient = cloudStoreClient,
         _dbClient = dbClient;
@@ -52,7 +52,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       await _authClient.sendPasswordResetEmail(email: email);
     } on FirebaseAuthException catch (e) {
       throw ServerException(
-          message: e.message ?? 'Error Occurred', statusCode: e.code);
+          message: e.message ?? 'Error Occurred', statusCode: e.code,);
     } catch (e, s) {
       debugPrintStack(stackTrace: s);
       throw ServerException(message: e.toString(), statusCode: '505');
@@ -91,7 +91,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       return LocalUserModel.fromMap(userData.data()!);
     } on FirebaseAuthException catch (e) {
       throw ServerException(
-          message: e.message ?? 'Error Occurred', statusCode: e.code);
+          message: e.message ?? 'Error Occurred', statusCode: e.code,);
     } on ServerException {
       rethrow;
     } catch (e, s) {
@@ -117,7 +117,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       await _setUserData(_authClient.currentUser!, email);
     } on FirebaseAuthException catch (e) {
       throw ServerException(
-          message: e.message ?? 'Error Occurred', statusCode: e.code);
+          message: e.message ?? 'Error Occurred', statusCode: e.code,);
     } on ServerException {
       rethrow;
     } catch (e, s) {
@@ -170,7 +170,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       }
     } on FirebaseException catch (e) {
       throw ServerException(
-          message: e.message ?? 'Error Occurred', statusCode: e.code);
+          message: e.message ?? 'Error Occurred', statusCode: e.code,);
     } on ServerException {
       rethrow;
     } catch (e, s) {

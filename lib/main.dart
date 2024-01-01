@@ -4,6 +4,7 @@ import 'package:clean_code_app/core/resources/fonts.dart';
 import 'package:clean_code_app/core/services/injection_container.dart';
 import 'package:clean_code_app/core/services/router.dart';
 import 'package:clean_code_app/firebase_options.dart';
+import 'package:clean_code_app/src/dashboard/providers/dashboard_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,8 +24,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => UserProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardController()),
+      ],
       child: MaterialApp(
         title: 'Clean Code & TDD app',
         theme: ThemeData(

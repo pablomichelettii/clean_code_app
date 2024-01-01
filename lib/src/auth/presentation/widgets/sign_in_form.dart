@@ -1,6 +1,5 @@
 import 'package:clean_code_app/core/commons/widgets/i_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:iconly/iconly.dart';
 
 class SignInForm extends StatefulWidget {

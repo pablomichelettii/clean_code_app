@@ -1,4 +1,3 @@
-import 'package:clean_code_app/core/commons/app/providers/user_provider.dart';
 import 'package:clean_code_app/core/commons/extensions/context_extension.dart';
 import 'package:clean_code_app/core/commons/widgets/gradient_background.dart';
 import 'package:clean_code_app/core/commons/widgets/rounded_button.dart';
