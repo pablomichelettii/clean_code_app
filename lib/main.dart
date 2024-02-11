@@ -4,7 +4,7 @@ import 'package:clean_code_app/core/resources/fonts.dart';
 import 'package:clean_code_app/core/services/injection_container.dart';
 import 'package:clean_code_app/core/services/router.dart';
 import 'package:clean_code_app/firebase_options.dart';
-import 'package:clean_code_app/src/dashboard/providers/dashboard_controller.dart';
+import 'package:clean_code_app/src/dashboard/presentation/providers/dashboard_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

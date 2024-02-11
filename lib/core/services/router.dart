@@ -5,7 +5,7 @@ import 'package:clean_code_app/src/auth/data/models/user_model.dart';
 import 'package:clean_code_app/src/auth/presentation/bloc/auth_bloc.dart';
 import 'package:clean_code_app/src/auth/presentation/views/sign_in_screen.dart';
 import 'package:clean_code_app/src/auth/presentation/views/sign_up_screen.dart';
-import 'package:clean_code_app/src/dashboard/presentation/views/dasboard.dart';
+import 'package:clean_code_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:clean_code_app/src/on_boarding/data/datasources/on_boarding_local_datasource.dart';
 import 'package:clean_code_app/src/on_boarding/presentation/cubit/on_boarding_cubit.dart';
 import 'package:clean_code_app/src/on_boarding/presentation/views/on_boarding_screen.dart';

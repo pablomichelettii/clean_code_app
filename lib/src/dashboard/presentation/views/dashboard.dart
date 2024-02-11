@@ -1,8 +1,8 @@
 import 'package:clean_code_app/core/commons/app/providers/user_provider.dart';
 import 'package:clean_code_app/core/resources/colors.dart';
 import 'package:clean_code_app/src/auth/data/models/user_model.dart';
-import 'package:clean_code_app/src/dashboard/providers/dashboard_controller.dart';
-import 'package:clean_code_app/src/dashboard/utils/dashboard_utils.dart';
+import 'package:clean_code_app/src/dashboard/presentation/providers/dashboard_controller.dart';
+import 'package:clean_code_app/src/dashboard/presentation/utils/dashboard_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iconly/iconly.dart';

@@ -8,7 +8,7 @@ import 'package:clean_code_app/src/auth/data/models/user_model.dart';
 import 'package:clean_code_app/src/auth/presentation/bloc/auth_bloc.dart';
 import 'package:clean_code_app/src/auth/presentation/views/sign_in_screen.dart';
 import 'package:clean_code_app/src/auth/presentation/widgets/sign_up_form.dart';
-import 'package:clean_code_app/src/dashboard/presentation/views/dasboard.dart';
+import 'package:clean_code_app/src/dashboard/presentation/views/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
