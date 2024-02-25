@@ -1,12 +1,14 @@
 import 'dart:async';
 
-import 'package:clean_code_app/core/commons/app/providers/tab_navigator.dart';
 import 'package:clean_code_app/core/commons/extensions/context_extension.dart';
 import 'package:clean_code_app/core/commons/widgets/popup_item.dart';
 import 'package:clean_code_app/core/resources/colors.dart';
+import 'package:clean_code_app/core/services/injection_container.dart';
+import 'package:clean_code_app/src/auth/presentation/bloc/auth_bloc.dart';
+import 'package:clean_code_app/src/profile/presentation/views/edit_profile_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -36,7 +38,10 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
                   color: Colours.neutralTextColour,
                 ),
               ),
-              onTap: () => context.push(const Placeholder()),
+              onTap: () => context.push(BlocProvider(
+                create: (context) => serviceLocator<AuthBloc>(),
+                child: const EditProfileView(),
+              )),
             ),
             PopupMenuItem<void>(
               child: const PopupItem(
@@ -88,7 +93,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
               },
             ),
           ],
-        )
+        ),
       ],
     );
   }
