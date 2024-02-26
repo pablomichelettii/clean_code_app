@@ -1,4 +1,3 @@
-
 import 'package:clean_code_app/src/auth/data/datasources/auth_remote_datasource.dart';
 import 'package:clean_code_app/src/auth/data/repositories/auth_repository_impl.dart';
 import 'package:clean_code_app/src/auth/domain/repositories/auth_repository.dart';
@@ -7,6 +6,12 @@ import 'package:clean_code_app/src/auth/domain/usecases/sign_in.dart';
 import 'package:clean_code_app/src/auth/domain/usecases/sign_up.dart';
 import 'package:clean_code_app/src/auth/domain/usecases/update_user.dart';
 import 'package:clean_code_app/src/auth/presentation/bloc/auth_bloc.dart';
+import 'package:clean_code_app/src/course/data/datasource/course_remote_data_source.dart';
+import 'package:clean_code_app/src/course/data/repository/course_repo_impl.dart';
+import 'package:clean_code_app/src/course/domain/repositories/course_repository.dart';
+import 'package:clean_code_app/src/course/domain/usecases/add_course.dart';
+import 'package:clean_code_app/src/course/domain/usecases/get_course.dart';
+import 'package:clean_code_app/src/course/presentation/cubit/course_cubit.dart';
 import 'package:clean_code_app/src/on_boarding/data/datasources/on_boarding_local_datasource.dart';
 import 'package:clean_code_app/src/on_boarding/data/repositories/on_boarding_repository_implementation.dart';
 import 'package:clean_code_app/src/on_boarding/domain/repositories/on_boarding_repository.dart';

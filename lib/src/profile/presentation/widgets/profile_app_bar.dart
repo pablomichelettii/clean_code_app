@@ -41,7 +41,7 @@ class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
               onTap: () => context.push(BlocProvider(
                 create: (context) => serviceLocator<AuthBloc>(),
                 child: const EditProfileView(),
-              )),
+              ),),
             ),
             PopupMenuItem<void>(
               child: const PopupItem(

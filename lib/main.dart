@@ -1,3 +1,4 @@
+import 'package:clean_code_app/core/commons/app/providers/course_of_the_day_notifier.dart';
 import 'package:clean_code_app/core/commons/app/providers/user_provider.dart';
 import 'package:clean_code_app/core/resources/colors.dart';
 import 'package:clean_code_app/core/resources/fonts.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => DashboardController()),
+        ChangeNotifierProvider(create: (_) => CourseOfTheDayNotifier()),
       ],
       child: MaterialApp(
         title: 'Clean Code & TDD app',
